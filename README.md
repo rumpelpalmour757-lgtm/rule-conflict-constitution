@@ -94,6 +94,8 @@ en/                           英文译本，以中文为准
 
 ## 许可
 
+作者：Celeste（GitHub：[rumpelpalmour757-lgtm](https://github.com/rumpelpalmour757-lgtm)）。条文、文档和脚本由 Claude 按作者的决定编写和测试。
+
 MIT 许可，Copyright (c) 2026 Celeste，全文见 [LICENSE](LICENSE)。改写所依据的工坊宪法也按 MIT 许可发布，见[来源说明](docs/source.md)。
 
 ## 英文版

@@ -96,6 +96,8 @@ Not done:
 
 ## License
 
+Author: Celeste (GitHub: [rumpelpalmour757-lgtm](https://github.com/rumpelpalmour757-lgtm)). The text, documents and script were written and tested by Claude following the author's decisions.
+
 MIT license, Copyright (c) 2026 Celeste; the full text is in [LICENSE](LICENSE). The Workshop constitution this is adapted from is also released under the MIT license; see the [source notes](en/docs/source.md).
 
 ## English version
