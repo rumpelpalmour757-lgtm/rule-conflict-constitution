@@ -1,0 +1,73 @@
+# 建立 GitHub 发布版本（Releases）。
+# 用法：先在 docs/releases/ 下放一份 <标签>.md（第一行是标题，# 开头；其余是发布说明）并推到 main，
+# 然后在 Actions 页手动运行这个工作流，填上标签（例如 v1.0）。
+# 附件由工作流生成：rule-conflict-constitution-<标签>.zip（用 git archive 从这次发布的提交打包，顶层目录是
+# rule-conflict-constitution/；.gitattributes 里标了 export-ignore 的 .github、docs/releases、.gitattributes、
+# .gitignore 不进包），再附上 LICENSE。
+# 已经有同名发布版本的，默认不覆盖，直接报错停下；要改标题、说明或重新生成附件，运行时把 replace 选成 true，
+# 这时附件仍从那个标签当初指向的提交生成，不会换成 main 上的新文件。
+name: 发布版本
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "发布版本的标签，例如 v1.0（要有对应的 docs/releases/<标签>.md）"
+        required: true
+      replace:
+        description: "已经有同名发布版本时，是否更新它的标题、说明和附件"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: 核对发布说明，生成附件
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          # 标签只许用这几种字符，免得拼进路径和命令时出事。
+          case "$TAG" in
+            ''|*[!A-Za-z0-9._-]*) echo "标签只能用字母、数字、点、下划线和连字符：$TAG"; exit 1 ;;
+          esac
+          test -f "docs/releases/$TAG.md" || { echo "缺发布说明 docs/releases/$TAG.md"; exit 1; }
+          # 标签已经存在时，从标签指向的提交打包；还没有这个标签时，用这次运行的提交，建发布版本时在这个提交上打标签。
+          if git rev-parse -q --verify "refs/tags/$TAG" >/dev/null; then
+            ref="$(git rev-list -n 1 "refs/tags/$TAG")"
+          else
+            ref="$GITHUB_SHA"
+          fi
+          echo "打包用的提交：$ref"
+          mkdir -p "$RUNNER_TEMP/assets"
+          git archive --format=zip --prefix=rule-conflict-constitution/ \
+            -o "$RUNNER_TEMP/assets/rule-conflict-constitution-$TAG.zip" "$ref"
+          git show "$ref:LICENSE" > "$RUNNER_TEMP/assets/LICENSE"
+          sha256sum "$RUNNER_TEMP"/assets/*
+          echo "$ref" > "$RUNNER_TEMP/ref.txt"
+
+      - name: 建立或更新发布版本
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+          REPLACE: ${{ inputs.replace }}
+        run: |
+          set -euo pipefail
+          # 发布说明的第一行去掉 # 当标题，其余当正文。
+          title="$(head -n 1 "docs/releases/$TAG.md" | sed 's/^#[[:space:]]*//')"
+          tail -n +2 "docs/releases/$TAG.md" > "$RUNNER_TEMP/notes.md"
+          files=("$RUNNER_TEMP"/assets/*)
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            if [ "$REPLACE" != "true" ]; then
+              echo "已经有 $TAG 这个发布版本，不覆盖（要更新请把 replace 选成 true）"; exit 1
+            fi
+            gh release edit "$TAG" --title "$title" --notes-file "$RUNNER_TEMP/notes.md"
+            gh release upload "$TAG" "${files[@]}" --clobber
+          else
+            gh release create "$TAG" "${files[@]}" --target "$(cat "$RUNNER_TEMP/ref.txt")" --title "$title" --notes-file "$RUNNER_TEMP/notes.md"
+          fi

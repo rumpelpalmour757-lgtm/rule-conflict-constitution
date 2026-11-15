@@ -1,0 +1,5 @@
+*.zip binary
+/.github export-ignore
+/docs/releases export-ignore
+/.gitattributes export-ignore
+/.gitignore export-ignore

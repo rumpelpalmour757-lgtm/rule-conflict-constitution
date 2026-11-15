@@ -1,0 +1,35 @@
+# 跑全部测试：push 和 pull request 时各跑一次。
+# Python 3.9 在 ubuntu-24.04 上跑：系统版本定住，因为 actions/python-versions 里 Python 3.9 只有 Ubuntu 22.04、24.04
+# 的构建（2026-11-15 查的），ubuntu-latest 换成更新的系统以后就装不上了。Python 3.13 在 ubuntu-latest 和
+# windows-latest 上各跑一项。
+# README 里写的命令是 python3 -I -B tests/run_tests.py；Windows 上装的 Python 不一定有 python3 这个命令名，
+# 这里统一用 python（setup-python 装好的那个）。-I 不受环境变量和脚本旁边同名文件影响，-B 不写 __pycache__。
+name: 测试
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  tests:
+    name: ${{ matrix.os }}，Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            python: "3.9"
+          - os: ubuntu-latest
+            python: "3.13"
+          - os: windows-latest
+            python: "3.13"
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: 跑全部测试
+        run: python -I -B tests/run_tests.py
