@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" width="1200" height="717" viewBox="0 0 1200 717" fill="none" role="img" aria-labelledby="title description">
+  <title id="title">AI Collaboration Constitution: the order of precedence and the five resolution steps</title>
+  <desc id="description">Left: the order of precedence, seven layers, higher binds lower: platform and legal requirements; honesty, a check that was not run is not written as passed; the principal's current explicit decisions; accepted deliverables and facts, which bind the AI, not the principal; the project's rules, rule files the principal hands in or designates; general practices; the AI's own judgement. Right: within the same layer, most often at layer 5. Sort by strength first: a rule with "recommended", "as far as possible", "generally" or the like is a recommendation, any other a must; a recommendation yields to a must, and that is no conflict. Only two musts go through the steps: the principal's latest explicit decision; a verified requirement beats an unverified description; the specific beats the general; between equally specific rules, the newer date wins; if it still cannot be decided, apply neither rule, and register it as pending with an interim practice. The AI may decide by steps 1 to 4; step 5 is the principal's alone. Stop at the deciding step and say which.</desc>
+  <defs>
+    <style>
+      text { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", "Source Han Sans SC", "WenQuanYi Micro Hei", sans-serif; }
+      .ink { fill: #1B2B3D; }
+      .muted { fill: #5B6770; }
+      .acc { fill: #4E3D88; }
+      .head { font-size: 19px; font-weight: 600; }
+      .sub { font-size: 16px; font-weight: 600; }
+      .small { font-size: 15px; }
+      .smallb { font-size: 15px; font-weight: 600; }
+      .num { fill: #FFFFFF; font-size: 15px; font-weight: 600; }
+      .card { fill: #FFFEFB; stroke: #DAD5C8; }
+      .row { fill: #F5F3FA; stroke: #E1DCEE; }
+      .line { stroke: #9F92C8; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    </style>
+  </defs>
+
+  <rect x="1" y="1" width="1198" height="715" rx="18" fill="#F6F4EE" stroke="#E0DCD0"/>
+  <path d="M40 38H70" stroke="#634E9F" stroke-width="3"/>
+  <text x="81" y="43.5" class="acc smallb" letter-spacing="1.5">AI Collaboration Constitution v1.0</text>
+  <text x="40" y="86" class="ink" font-size="28" font-weight="600">Order of precedence and the five resolution steps</text>
+  <text x="1160" y="83" class="muted" text-anchor="end" font-size="16">Step 5 is the principal's alone.</text>
+
+  <!-- 左：优先顺序 -->
+  <rect x="40" y="116" width="516" height="569" rx="10" class="card"/>
+  <text x="64" y="152" class="ink head">Order of precedence (higher binds lower)</text>
+  <path d="M62 186V653.0M57 647.0L62 653.0L67 647.0" class="line"/>
+  <rect x="82" y="174" width="458" height="48.0" rx="8" class="row"/>
+  <circle cx="106" cy="198.0" r="13" fill="#634E9F"/>
+  <text x="106" y="203.2" class="num" text-anchor="middle">1</text>
+  <text x="130" y="203.6" class="ink sub">Platform and legal requirements</text>
+  <rect x="82" y="235.8" width="458" height="72.0" rx="8" class="row"/>
+  <circle cx="106" cy="260.8" r="13" fill="#634E9F"/>
+  <text x="106" y="266.0" class="num" text-anchor="middle">2</text>
+  <text x="130" y="266.4" class="ink sub">Honesty</text>
+  <text x="130" y="289.3" class="muted small">a check that was not run is not written as passed</text>
+  <rect x="82" y="321.6" width="458" height="48.0" rx="8" class="row"/>
+  <circle cx="106" cy="345.6" r="13" fill="#634E9F"/>
+  <text x="106" y="350.8" class="num" text-anchor="middle">3</text>
+  <text x="130" y="351.2" class="ink sub">The principal's current explicit decisions</text>
+  <rect x="82" y="383.5" width="458" height="72.0" rx="8" class="row"/>
+  <circle cx="106" cy="408.5" r="13" fill="#634E9F"/>
+  <text x="106" y="413.7" class="num" text-anchor="middle">4</text>
+  <text x="130" y="414.1" class="ink sub">Accepted deliverables and facts</text>
+  <text x="130" y="437.0" class="muted small">they bind the AI, not the principal</text>
+  <rect x="82" y="469.3" width="458" height="72.0" rx="8" fill="#EEE9F7" stroke="#8F7CC4" stroke-width="1.5"/>
+  <circle cx="106" cy="494.3" r="13" fill="#634E9F"/>
+  <text x="106" y="499.5" class="num" text-anchor="middle">5</text>
+  <text x="130" y="499.9" class="ink sub">The project's rules</text>
+  <text x="130" y="522.8" class="muted small">rule files the principal hands in or designates</text>
+  <rect x="82" y="555.1" width="458" height="48.0" rx="8" class="row"/>
+  <circle cx="106" cy="579.1" r="13" fill="#634E9F"/>
+  <text x="106" y="584.3" class="num" text-anchor="middle">6</text>
+  <text x="130" y="584.7" class="ink sub">General practices</text>
+  <rect x="82" y="617.0" width="458" height="48.0" rx="8" class="row"/>
+  <circle cx="106" cy="641.0" r="13" fill="#634E9F"/>
+  <text x="106" y="646.2" class="num" text-anchor="middle">7</text>
+  <text x="130" y="646.6" class="ink sub">The AI's own judgement</text>
+  <path d="M540 505.3H578" stroke="#8F7CC4" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <path d="M573 500.3L579 505.3L573 510.3" stroke="#8F7CC4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- 右：同一层之内 -->
+  <rect x="584" y="116" width="576" height="569" rx="10" class="card"/>
+  <text x="608" y="152" class="ink head">Within the same layer<tspan class="muted small" font-weight="400" dx="12">most often at layer 5</tspan></text>
+  <rect x="608" y="170" width="528" height="169" rx="8" class="row"/>
+  <text x="628" y="198" class="ink sub">Sort by strength first</text>
+  <rect x="628" y="212" width="156" height="26" rx="13" fill="#E6E3DA"/>
+  <text x="706.0" y="230.5" class="smallb" text-anchor="middle" fill="#4B5563">recommendation</text>
+  <text x="798" y="230.5" class="muted small">“recommended”, “as far as possible”,</text>
+  <text x="798" y="251.5" class="muted small">“generally” or the like</text>
+  <rect x="628" y="269" width="72" height="26" rx="13" fill="#1F2A44"/>
+  <text x="664.0" y="287.5" class="smallb" text-anchor="middle" fill="#FFFFFF">must</text>
+  <text x="798" y="287.5" class="muted small">any other</text>
+  <text x="628" y="321" class="acc smallb">A recommendation yields to a must; that is no conflict.</text>
+  <path d="M642 345V371M637 365L642 371L647 365" class="line"/>
+  <text x="660" y="364" class="ink small">Only two musts go through the steps below</text>
+  <rect x="608" y="377" width="528" height="176" rx="8" class="row"/>
+  <text x="628" y="405" class="acc smallb">The AI may decide by steps 1 to 4</text>
+  <circle cx="642" cy="435" r="12" fill="#1F2A44"/>
+  <text x="642" y="440.2" class="num" text-anchor="middle">1</text>
+  <text x="666" y="440.4" class="ink smallb">The principal's latest explicit decision</text>
+  <circle cx="642" cy="467" r="12" fill="#1F2A44"/>
+  <text x="642" y="472.2" class="num" text-anchor="middle">2</text>
+  <text x="666" y="472.4" class="ink smallb">A verified requirement beats an unverified description</text>
+  <circle cx="642" cy="499" r="12" fill="#1F2A44"/>
+  <text x="642" y="504.2" class="num" text-anchor="middle">3</text>
+  <text x="666" y="504.4" class="ink smallb">The specific beats the general</text>
+  <circle cx="642" cy="531" r="12" fill="#1F2A44"/>
+  <text x="642" y="536.2" class="num" text-anchor="middle">4</text>
+  <text x="666" y="536.4" class="ink smallb">Between equally specific rules, the newer date wins</text>
+  <rect x="608" y="565" width="528" height="76" rx="8" fill="#EEE9F7" stroke="#8F7CC4" stroke-width="1.5"/>
+  <circle cx="642" cy="593" r="12" fill="#634E9F"/>
+  <text x="642" y="598.2" class="num" text-anchor="middle">5</text>
+  <text x="666" y="598.6" class="ink sub">If it still cannot be decided, apply neither rule</text>
+  <text x="666" y="625" class="muted small">register it as pending with an interim practice</text>
+  <text x="612" y="671" class="muted small">Stop at the deciding step and say which.</text>
+</svg>
