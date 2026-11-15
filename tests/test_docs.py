@@ -81,9 +81,12 @@ class Wording(unittest.TestCase):
 class CardAndSteps(unittest.TestCase):
     def test_the_card_is_under_5000_bytes(self):
         # 中英文的首页和“怎么用”都说卡片不到 5000 字节，可以整页贴进 AI 的项目指令。
+        # 按 LF 换行量：Windows 上检出成 CRLF 时每行多一个字节，贴进 AI 的内容并没有变多
+        # （2026-11-15 第一次在 GitHub 的 Windows 上跑 CI 时，就是这样多出了 47、49 个字节）。
         for name in ("CARD.md", "en/CARD.md"):
             with self.subTest(name=name):
-                self.assertLess(len((support.REPO / name).read_bytes()), 5000)
+                data = (support.REPO / name).read_bytes().replace(b"\r\n", b"\n")
+                self.assertLess(len(data), 5000)
 
     def test_the_five_steps_keep_their_numbers(self):
         # 登记表里 AI 定的条目写 rule_applied 1 至 4，第 5 步只能由委托人定；脚本认的是这个编号。

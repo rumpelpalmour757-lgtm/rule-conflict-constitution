@@ -1,3 +1,4 @@
+* text=auto eol=lf
 *.zip binary
 /.github export-ignore
 /docs/releases export-ignore
