@@ -62,7 +62,7 @@ python3 -I -B scripts/conflict_register.py collide --register examples/help-cent
 - 新规则要定一个叫法前，用 `collide` 查这个词在已采纳的成果里已经怎么用；`complete` 不是 `true` 时，结果不全。
 - 脚本照读登记表点名的任何路径（绝对路径、`../` 开头的都读），`collide` 会把命中的整行写进输出。拿别人给的登记表来跑之前，先看一眼它点名了哪些文件；让 AI 替你跑时也一样。
 
-每个命令的参数、输出和退出码见[规则打架时怎么定](conflict-resolution.md)最后一节。测试和脚本只在 Linux 上跑过；Windows 和 macOS 没有验证过，命令里的 `python3` 可能要换成 `py` 或 `python`。这个仓库在 GitHub 上配了持续集成，只跑本仓库自己的测试，不核你项目里的登记表；要在你的项目里提交前自动跑 `check`，得自己配。
+每个命令的参数、输出和退出码见[规则打架时怎么定](conflict-resolution.md)最后一节。测试和脚本在 Linux 上跑过，Windows 上只在 GitHub 的持续集成里跑过（windows-latest、Python 3.13），macOS 没有验证过；Windows 上命令里的 `python3` 可能要换成 `py` 或 `python`。这个仓库在 GitHub 上配了持续集成，只跑本仓库自己的测试，不核你项目里的登记表；要在你的项目里提交前自动跑 `check`，得自己配。
 
 ## 怎样放规范文件和登记表
 

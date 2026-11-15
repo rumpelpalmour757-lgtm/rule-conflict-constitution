@@ -85,8 +85,8 @@ en/                           英文译本，以中文为准
 
 没做的：
 
-- Windows 和 macOS 上没有验证过。测试里只用 `PYTHONIOENCODING=gbk` 模拟过 Windows 的 GBK 控制台。CI 里有 Windows 一项（见下一条），它在 GitHub 上真跑通以前，不算验证过。Windows 上有一项测试跳过不跑：它要往命令行传不能按 UTF-8 解的字节，Windows 的命令行传不了。
-- 到 2026-11-15 写这份说明时，持续集成还没有在 GitHub 上跑过。`.github/workflows/tests.yml` 在 push 和 pull request 时跑全部测试：ubuntu-24.04 上用 Python 3.9，ubuntu-latest 上用 Python 3.13，CI 里有 Windows 一项（windows-latest、Python 3.13）。每次跑的结果看仓库的 Actions 页。
+- macOS 上没有验证过。Windows 上只有 GitHub 持续集成里那一项（windows-latest、Python 3.13，见下一条），没有在谁的电脑上实际用过；Windows 上有一项测试跳过不跑：它要往命令行传不能按 UTF-8 解的字节，Windows 的命令行传不了。
+- 持续集成：`.github/workflows/tests.yml` 在 push 和 pull request 时跑全部测试，ubuntu-24.04 上用 Python 3.9，ubuntu-latest 和 windows-latest 上用 Python 3.13。2026-11-15 第一次在 GitHub 上跑，Windows 一项有 2 个测试不过：Windows 检出时把换行换成了 CRLF，两张卡片的字节数多出四十几个，超过了测试的 5000 字节上限（卡片的内容没有变）。改成所有系统都按 LF 检出、量卡片字节数时按 LF 算以后，[三项都通过](https://github.com/rumpelpalmour757-lgtm/rule-conflict-constitution/actions/runs/43740706277)。每次跑的结果看仓库的 Actions 页。这一项放在“没做的”里，是因为它只跑本仓库自己的测试。
 - 卡片和宪法在别家 AI 上、在真实项目里会不会照做，没有验证过。
 - 收紧以后的 C11 只在另写的 7 道检验题上测过一轮；这 7 道题不给规则也都判对，看不出规则的作用。该走完整流程的事（AI 交出的东西直接到别人手里、一次改动动到多份成果）会不会被当成小事办轻了，三轮都没有专门测过。前两轮的 14 个场景上，不给规则的对照组没有重跑。
 - 这套办法能不能让工作做得更好，没有验证过。测试通过只说明脚本照文档写的行为工作，不说明这些规则好用。

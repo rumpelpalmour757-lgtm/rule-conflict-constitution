@@ -64,7 +64,7 @@ When using it on your own project:
 - Before a new rule sets a term, use `collide` to check how the word is already used in the accepted deliverables. When `complete` is not `true`, the results are incomplete.
 - The script reads any path the register names (absolute paths and paths starting with `../` included), and `collide` writes whole matching lines into its output. Before running a register someone else gave you, look at which files it names; the same applies when you have an AI run it for you.
 
-For each command's arguments, output and exit codes, see the last section of [When rules conflict](conflict-resolution.md). The tests and the script have only been run on Linux. Windows and macOS have not been verified, and `python3` in the commands may need to be replaced with `py` or `python`. This repository has continuous integration set up on GitHub, but it only runs this repository's own tests and does not check the registers in your project; if you want `check` to run automatically before each commit in your project, you have to set that up yourself.
+For each command's arguments, output and exit codes, see the last section of [When rules conflict](conflict-resolution.md). The tests and the script have been run on Linux, and on Windows only in GitHub's continuous integration (windows-latest, Python 3.13); macOS has not been verified. On Windows, `python3` in the commands may need to be replaced with `py` or `python`. This repository has continuous integration set up on GitHub, but it only runs this repository's own tests and does not check the registers in your project; if you want `check` to run automatically before each commit in your project, you have to set that up yourself.
 
 ## How to lay out the guideline files and the register
 
